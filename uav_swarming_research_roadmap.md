@@ -23,7 +23,6 @@ When inter-UAV RF links suffer from **jamming, bandwidth dropouts, latency spike
 
 ---
 
-## 2. Comprehensive PhD Research Roadmap (4-Year Horizon)
 ## 2. Comprehensive 3-Year PhD Research Roadmap
 
 ### Detailed Year 1: Foundations, System Modeling, & Baselines
