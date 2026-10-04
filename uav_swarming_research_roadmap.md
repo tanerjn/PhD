@@ -24,27 +24,37 @@ When inter-UAV RF links suffer from **jamming, bandwidth dropouts, latency spike
 ---
 
 ## 2. Comprehensive PhD Research Roadmap (4-Year Horizon)
+## 2. Comprehensive 3-Year PhD Research Roadmap
 
-### Year 1: Systematic Literature Review (PRISMA) & Problem Formulation
-* **Q1–Q2:** Execute the **PRISMA Protocol** to map existing research at the intersection of Agentic AI, Multi-Agent Systems (MAS), and Communication-Degraded UAV Swarms.
-* **Q3:** Define the mathematical model for communication degradation (Packet Loss Rate $P_{loss}$, Signal-to-Interference-plus-Noise Ratio $SINR$, Bandwidth constraints $B(t)$, and Time-Varying Adjacency Matrix $G(t)=(V, E(t))$).
-* **Q4:** Formulate the Multi-Agent Markov Decision Process under Partial Observability and Communication Constraints (**Dec-POMDP-Comms**).
+### Detailed Year 1: Foundations, System Modeling, & Baselines
+* **Quarter 1–2: Systematic Literature Review (PRISMA) & Problem Formulation**
+  * **PRISMA Protocol:** Execute a thorough review of IEEE Xplore, ACM, and arXiv across 2020–2026, targeting multi-agent communication constraints and LLM/agentic coordination.
+  * **Mathematical Modeling:** Formulate the core problem as a Decentralized Partially Observable Markov Decision Process under Communication Constraints (**Dec-POMDP-Comms**), defining packet loss ($P_{loss}$), Signal-to-Interference-plus-Noise Ratio ($SINR$), and time-varying adjacency matrices $G(t)=(V, E(t))$.
+  * **Deliverable:** Foundation survey draft / workshop paper.
+* **Quarter 3–4: Dual-Layer Simulation Infrastructure & Classical Baselines**
+  * **Simulation Build:** Set up the integrated dual-layer environment using Gazebo / ROS 2 combined with network emulation tools (EMANE or NS-3) to inject realistic network degradation.
+  * **Baseline Implementation:** Implement standard reference algorithms (e.g., Consensus-Based Bundle Algorithm [CBBA] or basic leader-follower formations) to create performance benchmarks.
+  * **Deliverable:** Functional simulation platform and baseline performance metrics under varying packet drop rates.
 
-### Year 2: Simulation Environment Setup & Baseline Agentic Framework
-* **Q1–Q2:** Construct the dual-layer simulation architecture (Physical Dynamics in ROS 2 / Gazebo / Isaac Sim paired with Network Emulation in EMANE / NS-3).
-* **Q3:** Implement baseline swarm algorithms (e.g., Consensus-Based Bundle Algorithm [CBBA], Centralized Training with Decentralized Execution [CTDE-MARL], Dynamic Leader-Follower).
-* **Q4:** Develop the single-node Agentic AI pipeline (Small Language Models [SLM] or Fine-Tuned Llama-3/Phi-3 onboard with local memory state and tool-calling capabilities).
+### Detailed Year 2: Agentic AI Integration & Resilient Protocols
+* **Quarter 1–2: Onboard Agentic Framework Deployment**
+  * **Edge Architecture:** Deploy local, quantized Small Language Models (SLMs like Phi-3 or Llama-3-8B) on simulated edge compute nodes.
+  * **Framework Selection:** Implement **LangGraph** to manage predictable, deterministic agent state machines locally on each UAV, avoiding token-heavy multi-turn chat loops.
+  * **Deliverable:** Single-node agentic reasoning pipeline with local tool-calling capabilities.
+* **Quarter 3–4: Bandwidth-Aware Protocols & Fallback Topologies**
+  * **Adaptive Communication:** Design protocols where agents dynamically shift from verbose token exchange to compact numerical state embeddings during low-bandwidth phases.
+  * **Resilient Fallback Design:** Program local LangGraph fallback paths so that if peer connectivity is lost, individual drones seamlessly transition from global consensus to autonomous local execution.
+  * **Deliverable:** Communication-adaptive swarm control architecture.
 
-### Year 3: Agentic Swarm Orchestration under Degraded Communication
-* **Q1–Q2:** Design **Degraded-State Fallback Topologies** (e.g., transitioning from global LLM consensus to local dynamic graph execution via specialized edge agents).
-* **Q3:** Introduce **Bandwidth-Aware Agent Communication Protocols** (e.g., state embedding passing rather than natural language tokens during low-bandwidth phases).
-* **Q4:** Test resilience against active jamming, RF non-line-of-sight (NLOS) in urban canyons, and node loss.
-
-### Year 4: Validation, Real-World Flight Tests, & Thesis Defense
-* **Q1–Q2:** Real-world hardware-in-the-loop (HIL) validation using physical micro-UAVs (e.g., PX4/ArduPilot running on NVIDIA Jetson Orin Nano).
-* **Q3:** Benchmark comparisons: Agentic AI Swarm vs. Traditional MARL vs. Fixed Rule-Based Swarm.
-* **Q4:** Thesis writing, journal publications (IEEE Transactions / Autonomous Robots), and final defense.
-
+### Detailed Year 3: Stress Testing, Hardware Validation, & Defense
+* **Quarter 1–2: Comprehensive Adversarial Stress Testing & Benchmarking**
+  * **Adversarial Scenarios:** Subject the agentic swarm to extreme testing conditions, including active RF jamming, urban canyon non-line-of-sight (NLOS) blockages, and sudden multi-node failures.
+  * **Comparative Evaluation:** Benchmark your Agentic AI Swarm against Traditional MARL and Fixed Rule-Based Swarms across key performance indicators (task completion time, resilience, and bandwidth efficiency).
+  * **Deliverable:** Comprehensive benchmarking dataset and major journal manuscript submission.
+* **Quarter 3–4: Hardware-in-the-Loop (HIL) & Thesis Completion**
+  * **HIL Validation:** Deploy code onto physical micro-UAV hardware targets (e.g., NVIDIA Jetson Orin Nano running PX4/ArduPilot) to validate real-time execution constraints.
+  * **Writing & Defense:** Finalize dissertation documentation, open-source the modular codebase, and complete the final oral defense.
+  * **Deliverable:** Completed PhD dissertation, final defense presentation, and archived open-source repository.
 ---
 
 ## 3. Systematic Literature Review Strategy (PRISMA Method)
